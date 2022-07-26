@@ -1,3 +1,3 @@
-interface ILevel{
+export interface ILevel{
     ConstructLevel(): string
 }

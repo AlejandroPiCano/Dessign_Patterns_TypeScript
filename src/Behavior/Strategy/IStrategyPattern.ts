@@ -1,3 +1,3 @@
-interface IStrategyPattern{
+export interface IStrategyPattern{
      Execute(): any
 }

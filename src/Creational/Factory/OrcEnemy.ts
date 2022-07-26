@@ -1,5 +1,4 @@
-
-
+import { IEnemy } from "./IEnemy";
 
  export class OrcEnemy implements IEnemy{
     constructor(){}

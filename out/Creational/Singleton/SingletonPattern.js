@@ -4,7 +4,7 @@ exports.Singleton = void 0;
 var Singleton = /** @class */ (function () {
     function Singleton() {
     }
-    Singleton.GetInstance = function () {
+    Singleton.prototype.GetInstance = function () {
         if (!Singleton.singletonInstance) {
             Singleton.singletonInstance = new Singleton();
         }

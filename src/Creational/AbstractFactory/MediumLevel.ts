@@ -1,3 +1,5 @@
+import { ILevel } from "./ILevel";
+
 export default class MediumLevel implements ILevel
 {
     ConstructLevel(): string

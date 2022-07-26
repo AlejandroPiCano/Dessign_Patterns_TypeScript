@@ -1,4 +1,4 @@
-interface IAbstractFactoryPattern<T, K>{
+export interface IAbstractFactoryPattern<T, K>{
     createInstanceOfT(): T
 
     createInstanceOfK(): K

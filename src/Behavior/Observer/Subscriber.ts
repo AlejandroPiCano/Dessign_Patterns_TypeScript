@@ -1,3 +1,5 @@
+import { IObserver } from "./IObserver";
+
 export class Subscriber implements IObserver{
 
     userName : string = "";

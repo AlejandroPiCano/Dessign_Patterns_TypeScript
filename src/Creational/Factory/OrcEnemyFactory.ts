@@ -1,3 +1,4 @@
+import { IFactoryPattern } from "./IFactoryPattern";
 import { OrcEnemy } from "./OrcEnemy";
 
 export class OrcEnemyFactory implements  IFactoryPattern<OrcEnemy>

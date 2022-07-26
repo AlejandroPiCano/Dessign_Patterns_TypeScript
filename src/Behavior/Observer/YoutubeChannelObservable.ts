@@ -1,3 +1,4 @@
+import { IObservable } from "./IObservable";
 import { Subscriber } from "./Subscriber";
 
 export class YoutubeChannelObservable implements IObservable<Subscriber>{

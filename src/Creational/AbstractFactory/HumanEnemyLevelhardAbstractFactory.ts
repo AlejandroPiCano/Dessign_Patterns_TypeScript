@@ -1,5 +1,6 @@
 import HumanEnemy from "../Factory/HumanEnemy";
 import HardLevel from "./HardLevel";
+import { IAbstractFactoryPattern } from "./IAbstractFactoryPatter";
 
 export class HumanEnemyLevelhardAbstractFactory implements IAbstractFactoryPattern<HumanEnemy, HardLevel>
 {

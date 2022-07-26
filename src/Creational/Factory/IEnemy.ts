@@ -1,3 +1,3 @@
-interface IEnemy{
+export interface IEnemy{
     attack(): any
 }
