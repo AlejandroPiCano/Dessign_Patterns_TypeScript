@@ -5,8 +5,12 @@ import { FireAttackStrategy } from "./Behavior/Strategy/FireAttackStrategy";
 import { RayAttackStrategy } from "./Behavior/Strategy/RayAttackStrategy";
 import BotEnemy from "./Creational/Factory/BotEnemy";
 import { BotEnemyFactory } from "./Creational/Factory/BotEnemyFactory";
+import HumanEnemy from "./Creational/Factory/HumanEnemy";
 import { HumanEnemyFactory } from "./Creational/Factory/HumanEnemyFactory";
+import { OrcEnemy } from "./Creational/Factory/OrcEnemy";
 import { OrcEnemyFactory } from "./Creational/Factory/OrcEnemyFactory";
+import { ArmourDecorator } from "./Structural/ArmourDecorator";
+import { HelmetDecorator } from "./Structural/HelmetDecorator";
 
 export class  ExampleOfStrategy{
     rayAttack: RayAttackStrategy = new RayAttackStrategy();
@@ -54,7 +58,7 @@ export class  ExampleOfFactory{
 }
 
 
-export class ExamplesOfUse{
+export class main{
 
     /* Creational patterns */
     ExampleOfFactory(){
@@ -88,9 +92,27 @@ export class ExamplesOfUse{
       console.log("Detaching Paula");
       youtubeChannel.notify();
     }
+
+    ExampleOfDecorator(){
+        let orcEnemy : OrcEnemy = new OrcEnemy();
+
+        var orcHelmetDecorator: HelmetDecorator = new HelmetDecorator(orcEnemy);
+        var orcArmourDecorator: ArmourDecorator = new ArmourDecorator(orcHelmetDecorator);
+
+        console.log(`orc enemy take a damage ${orcArmourDecorator.takeDamage()}`);
+
+
+        let humanEnemy : HumanEnemy = new HumanEnemy();
+
+        var humanHelmetDecorator: HelmetDecorator = new HelmetDecorator(humanEnemy);
+        var humanArmourDecorator: ArmourDecorator = new ArmourDecorator(humanHelmetDecorator);
+
+        console.log(`human enemy take a damage ${humanArmourDecorator.takeDamage()}`);
+    }
 }
 
-let program = new ExamplesOfUse();
+let program = new main();
 // program.ExampleOfStrategy();
 //program.ExampleOfFactory();
-program.ExampleOfObservable();
+//program.ExampleOfObservable();
+program.ExampleOfDecorator();

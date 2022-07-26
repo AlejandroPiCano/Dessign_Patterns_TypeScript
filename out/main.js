@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.main = exports.ExampleOfFactory = exports.ExampleOfStrategy = void 0;
 var Subscriber_1 = require("./Behavior/Observer/Subscriber");
@@ -7,9 +10,11 @@ var BombAttackStrategy_1 = require("./Behavior/Strategy/BombAttackStrategy");
 var FireAttackStrategy_1 = require("./Behavior/Strategy/FireAttackStrategy");
 var RayAttackStrategy_1 = require("./Behavior/Strategy/RayAttackStrategy");
 var BotEnemyFactory_1 = require("./Creational/Factory/BotEnemyFactory");
+var HumanEnemy_1 = __importDefault(require("./Creational/Factory/HumanEnemy"));
 var HumanEnemyFactory_1 = require("./Creational/Factory/HumanEnemyFactory");
 var OrcEnemy_1 = require("./Creational/Factory/OrcEnemy");
 var OrcEnemyFactory_1 = require("./Creational/Factory/OrcEnemyFactory");
+var ArmourDecorator_1 = require("./Structural/ArmourDecorator");
 var HelmetDecorator_1 = require("./Structural/HelmetDecorator");
 var ExampleOfStrategy = /** @class */ (function () {
     function ExampleOfStrategy() {
@@ -85,8 +90,12 @@ var main = /** @class */ (function () {
     main.prototype.ExampleOfDecorator = function () {
         var orcEnemy = new OrcEnemy_1.OrcEnemy();
         var orcHelmetDecorator = new HelmetDecorator_1.HelmetDecorator(orcEnemy);
-        var orcArmourDecorator = new HelmetDecorator_1.HelmetDecorator(orcHelmetDecorator);
-        console.log(orcArmourDecorator.takeDamage());
+        var orcArmourDecorator = new ArmourDecorator_1.ArmourDecorator(orcHelmetDecorator);
+        console.log("orc enemy take a damage " + orcArmourDecorator.takeDamage());
+        var humanEnemy = new HumanEnemy_1.default();
+        var humanHelmetDecorator = new HelmetDecorator_1.HelmetDecorator(humanEnemy);
+        var humanArmourDecorator = new ArmourDecorator_1.ArmourDecorator(humanHelmetDecorator);
+        console.log("human enemy take a damage " + humanArmourDecorator.takeDamage());
     };
     return main;
 }());

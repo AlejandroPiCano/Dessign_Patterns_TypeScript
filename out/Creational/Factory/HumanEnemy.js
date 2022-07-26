@@ -6,6 +6,9 @@ var HumanEnemy = /** @class */ (function () {
     HumanEnemy.prototype.attack = function () {
         console.log("Human attack.");
     };
+    HumanEnemy.prototype.takeDamage = function () {
+        return 10;
+    };
     return HumanEnemy;
 }());
 exports.default = HumanEnemy;
