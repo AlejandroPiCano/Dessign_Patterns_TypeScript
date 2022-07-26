@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EnemyFactory = void 0;
-var EnemyFactory = /** @class */ (function () {
-    function EnemyFactory() {
+exports.OrcEnemyFactory = void 0;
+var OrcEnemy_1 = require("./OrcEnemy");
+var OrcEnemyFactory = /** @class */ (function () {
+    function OrcEnemyFactory() {
     }
-    EnemyFactory.prototype.createInstance = function () {
-        return new OrcEnemy();
+    OrcEnemyFactory.prototype.createInstance = function () {
+        return new OrcEnemy_1.OrcEnemy();
     };
-    return EnemyFactory;
+    return OrcEnemyFactory;
 }());
-exports.EnemyFactory = EnemyFactory;
+exports.OrcEnemyFactory = OrcEnemyFactory;

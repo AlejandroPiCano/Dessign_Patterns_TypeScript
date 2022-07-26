@@ -1,3 +1,4 @@
+import { OrcEnemy } from "../Factory/OrcEnemy";
 import MediumLevel from "./MediumLevel";
 
 export class OrcEnemyLevelMediumAbstractFactory implements IAbstractFactoryPattern<OrcEnemy, MediumLevel>

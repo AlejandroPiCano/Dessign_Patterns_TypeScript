@@ -4,12 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrcEnemyLevelMediumAbstractFactory = void 0;
+var OrcEnemy_1 = require("../Factory/OrcEnemy");
 var MediumLevel_1 = __importDefault(require("./MediumLevel"));
 var OrcEnemyLevelMediumAbstractFactory = /** @class */ (function () {
     function OrcEnemyLevelMediumAbstractFactory() {
     }
     OrcEnemyLevelMediumAbstractFactory.prototype.createInstanceOfT = function () {
-        return new OrcEnemy();
+        return new OrcEnemy_1.OrcEnemy();
     };
     OrcEnemyLevelMediumAbstractFactory.prototype.createInstanceOfK = function () {
         return new MediumLevel_1.default();

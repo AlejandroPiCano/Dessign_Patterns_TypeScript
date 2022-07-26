@@ -1,0 +1,3 @@
+interface IStrategyPattern{
+     Execute(): any
+}

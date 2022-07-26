@@ -1,3 +1,4 @@
+import { OrcEnemy } from "../Factory/OrcEnemy";
 import EasyLevel from "./EasyLevel";
 
 export class OrcEnemyLevelEasyAbstractFactory implements IAbstractFactoryPattern<OrcEnemy, EasyLevel>

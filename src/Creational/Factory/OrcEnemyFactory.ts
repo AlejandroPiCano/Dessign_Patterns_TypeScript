@@ -1,7 +1,6 @@
+import { OrcEnemy } from "./OrcEnemy";
 
-
-
-export class EnemyFactory implements  IFactoryPattern<OrcEnemy>
+export class OrcEnemyFactory implements  IFactoryPattern<OrcEnemy>
 {
     createInstance(): OrcEnemy {
         return new OrcEnemy();

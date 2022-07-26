@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrcEnemy = void 0;
 var OrcEnemy = /** @class */ (function () {
     function OrcEnemy() {
     }
@@ -7,3 +9,4 @@ var OrcEnemy = /** @class */ (function () {
     };
     return OrcEnemy;
 }());
+exports.OrcEnemy = OrcEnemy;
