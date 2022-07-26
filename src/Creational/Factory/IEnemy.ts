@@ -1,0 +1,3 @@
+interface IEnemy{
+    attack(): any
+}
