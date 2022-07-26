@@ -9,8 +9,17 @@ import HumanEnemy from "./Creational/Factory/HumanEnemy";
 import { HumanEnemyFactory } from "./Creational/Factory/HumanEnemyFactory";
 import { OrcEnemy } from "./Creational/Factory/OrcEnemy";
 import { OrcEnemyFactory } from "./Creational/Factory/OrcEnemyFactory";
-import { ArmourDecorator } from "./Structural/ArmourDecorator";
-import { HelmetDecorator } from "./Structural/HelmetDecorator";
+import { BlueColor } from "./Structural/Bridge/BlueColor";
+import { CircleShape } from "./Structural/Bridge/CircleShape";
+import { RedColor } from "./Structural/Bridge/RedColor";
+import { SquareShape } from "./Structural/Bridge/SquareShape";
+import { BodyComposite } from "./Structural/Composite/BodyComposite";
+import { Head } from "./Structural/Composite/Head";
+import { Leg } from "./Structural/Composite/Leg";
+import { Tail } from "./Structural/Composite/Tail";
+import { ArmourDecorator } from "./Structural/Decorator/ArmourDecorator";
+import { HelmetDecorator } from "./Structural/Decorator/HelmetDecorator";
+
 
 export class  ExampleOfStrategy{
     rayAttack: RayAttackStrategy = new RayAttackStrategy();
@@ -109,10 +118,35 @@ export class main{
 
         console.log(`human enemy take a damage ${humanArmourDecorator.takeDamage()}`);
     }
+
+    ExampleOfBridge(){
+        let squareRed = new SquareShape(new RedColor());
+        let squareBlue = new SquareShape(new BlueColor());
+        let circleRed = new CircleShape(new RedColor());
+        let circleBlue = new CircleShape(new BlueColor());
+
+        console.log(squareRed.DrawShape());
+        console.log(squareBlue.DrawShape());
+        console.log(circleRed.DrawShape());
+        console.log(circleBlue.DrawShape());
+    }
+
+
+    ExampleOfComposite(){
+        let body = new BodyComposite();
+      body.add(new Head());
+      body.add(new Tail());
+      body.add(new Leg());
+
+      body.operation();
+    }
+
 }
 
 let program = new main();
 // program.ExampleOfStrategy();
 //program.ExampleOfFactory();
 //program.ExampleOfObservable();
-program.ExampleOfDecorator();
+//program.ExampleOfDecorator();
+// program.ExampleOfBridge();
+program.ExampleOfComposite();

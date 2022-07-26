@@ -14,8 +14,16 @@ var HumanEnemy_1 = __importDefault(require("./Creational/Factory/HumanEnemy"));
 var HumanEnemyFactory_1 = require("./Creational/Factory/HumanEnemyFactory");
 var OrcEnemy_1 = require("./Creational/Factory/OrcEnemy");
 var OrcEnemyFactory_1 = require("./Creational/Factory/OrcEnemyFactory");
-var ArmourDecorator_1 = require("./Structural/ArmourDecorator");
-var HelmetDecorator_1 = require("./Structural/HelmetDecorator");
+var BlueColor_1 = require("./Structural/Bridge/BlueColor");
+var CircleShape_1 = require("./Structural/Bridge/CircleShape");
+var RedColor_1 = require("./Structural/Bridge/RedColor");
+var SquareShape_1 = require("./Structural/Bridge/SquareShape");
+var BodyComposite_1 = require("./Structural/Composite/BodyComposite");
+var Head_1 = require("./Structural/Composite/Head");
+var Leg_1 = require("./Structural/Composite/Leg");
+var Tail_1 = require("./Structural/Composite/Tail");
+var ArmourDecorator_1 = require("./Structural/Decorator/ArmourDecorator");
+var HelmetDecorator_1 = require("./Structural/Decorator/HelmetDecorator");
 var ExampleOfStrategy = /** @class */ (function () {
     function ExampleOfStrategy() {
         this.rayAttack = new RayAttackStrategy_1.RayAttackStrategy();
@@ -97,6 +105,23 @@ var main = /** @class */ (function () {
         var humanArmourDecorator = new ArmourDecorator_1.ArmourDecorator(humanHelmetDecorator);
         console.log("human enemy take a damage " + humanArmourDecorator.takeDamage());
     };
+    main.prototype.ExampleOfBridge = function () {
+        var squareRed = new SquareShape_1.SquareShape(new RedColor_1.RedColor());
+        var squareBlue = new SquareShape_1.SquareShape(new BlueColor_1.BlueColor());
+        var circleRed = new CircleShape_1.CircleShape(new RedColor_1.RedColor());
+        var circleBlue = new CircleShape_1.CircleShape(new BlueColor_1.BlueColor());
+        console.log(squareRed.DrawShape());
+        console.log(squareBlue.DrawShape());
+        console.log(circleRed.DrawShape());
+        console.log(circleBlue.DrawShape());
+    };
+    main.prototype.ExampleOfComposite = function () {
+        var body = new BodyComposite_1.BodyComposite();
+        body.add(new Head_1.Head());
+        body.add(new Tail_1.Tail());
+        body.add(new Leg_1.Leg());
+        body.operation();
+    };
     return main;
 }());
 exports.main = main;
@@ -104,4 +129,6 @@ var program = new main();
 // program.ExampleOfStrategy();
 //program.ExampleOfFactory();
 //program.ExampleOfObservable();
-program.ExampleOfDecorator();
+//program.ExampleOfDecorator();
+// program.ExampleOfBridge();
+program.ExampleOfComposite();

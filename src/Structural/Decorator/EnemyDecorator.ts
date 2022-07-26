@@ -1,4 +1,5 @@
-import { IEnemy } from "../Creational/Factory/IEnemy";
+import { IEnemy } from "../../Creational/Factory/IEnemy";
+
 
 export abstract class EnemyDecorator implements IEnemy{
     protected enemy: IEnemy;

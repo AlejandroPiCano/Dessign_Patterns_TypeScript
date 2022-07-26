@@ -1,4 +1,3 @@
-import { OrcEnemy } from "../Creational/Factory/OrcEnemy";
 import { EnemyDecorator } from "./EnemyDecorator";
 
 export class HelmetDecorator extends EnemyDecorator{
