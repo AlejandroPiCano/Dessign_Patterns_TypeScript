@@ -1,3 +1,5 @@
+import { Subscriber } from "./Behavior/Observer/Subscriber";
+import { YoutubeChannelObservable } from "./Behavior/Observer/YoutubeChannelObservable";
 import { BombAttackStrategy } from "./Behavior/Strategy/BombAttackStrategy";
 import { FireAttackStrategy } from "./Behavior/Strategy/FireAttackStrategy";
 import { RayAttackStrategy } from "./Behavior/Strategy/RayAttackStrategy";
@@ -67,8 +69,28 @@ export class ExamplesOfUse{
 
         strategy.attack();
     }
+
+    ExampleOfObservable(){
+      let youtubeChannel = new  YoutubeChannelObservable();
+
+      youtubeChannel.attach(new Subscriber("Alvaro"));
+      youtubeChannel.attach(new Subscriber("Alex"));
+
+      let paula = new Subscriber("Paula");
+      youtubeChannel.attach(paula);
+
+      youtubeChannel.attach(new Subscriber("Enrique"));
+
+      youtubeChannel.notify();
+
+      youtubeChannel.detach(paula);
+
+      console.log("Detaching Paula");
+      youtubeChannel.notify();
+    }
 }
 
 let program = new ExamplesOfUse();
 // program.ExampleOfStrategy();
-program.ExampleOfFactory();
+//program.ExampleOfFactory();
+program.ExampleOfObservable();

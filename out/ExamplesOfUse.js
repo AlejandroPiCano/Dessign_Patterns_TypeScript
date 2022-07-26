@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExamplesOfUse = exports.ExampleOfFactory = exports.ExampleOfStrategy = void 0;
+var Subscriber_1 = require("./Behavior/Observer/Subscriber");
+var YoutubeChannelObservable_1 = require("./Behavior/Observer/YoutubeChannelObservable");
 var BombAttackStrategy_1 = require("./Behavior/Strategy/BombAttackStrategy");
 var FireAttackStrategy_1 = require("./Behavior/Strategy/FireAttackStrategy");
 var RayAttackStrategy_1 = require("./Behavior/Strategy/RayAttackStrategy");
@@ -66,9 +68,22 @@ var ExamplesOfUse = /** @class */ (function () {
         var strategy = new ExampleOfStrategy();
         strategy.attack();
     };
+    ExamplesOfUse.prototype.ExampleOfObservable = function () {
+        var youtubeChannel = new YoutubeChannelObservable_1.YoutubeChannelObservable();
+        youtubeChannel.attach(new Subscriber_1.Subscriber("Alvaro"));
+        youtubeChannel.attach(new Subscriber_1.Subscriber("Alex"));
+        var paula = new Subscriber_1.Subscriber("Paula");
+        youtubeChannel.attach(paula);
+        youtubeChannel.attach(new Subscriber_1.Subscriber("Enrique"));
+        youtubeChannel.notify();
+        youtubeChannel.detach(paula);
+        console.log("Detaching Paula");
+        youtubeChannel.notify();
+    };
     return ExamplesOfUse;
 }());
 exports.ExamplesOfUse = ExamplesOfUse;
 var program = new ExamplesOfUse();
 // program.ExampleOfStrategy();
-program.ExampleOfFactory();
+//program.ExampleOfFactory();
+program.ExampleOfObservable();
